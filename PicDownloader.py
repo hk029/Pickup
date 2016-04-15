@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+#-*- coding:utf-8 -*-
 import re
 import requests
 
@@ -17,7 +17,9 @@ def dowmloadPic(html,keyword):
         except requests.exceptions.ConnectionError:
             print '【错误】当前图片无法下载'
             continue
-        fp = open('pic\\'+str(i) + '.jpg','wb')
+        string = 'pictures\\'+keyword+'_'+str(i) + '.jpg'
+        #resolve the problem of encode, make sure that chinese name could be store
+        fp = open(string.decode('utf-8').encode('cp936'),'wb')
         fp.write(pic.content)
         fp.close()
         i += 1
