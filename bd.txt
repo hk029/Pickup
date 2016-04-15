@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+
+
+<script>
+    (function (context) {
+        var data = {};
+        var url = 'http://imgstat.baidu.com/17.gif';
+        var start = +new Date;
+        var createQuery = function (data) {
+            var ret = [];
+            for (var key in data) {
+                ret.push(key + '=' + data[key]);
+            }
+            return ret.join('&');
+        };
+
+        var _mergeCommPara = function (data) {
+            data.etype = 'speed';
+            data.page = 'result';
+            data.browser = '';
+
+            data.logid = "15998905291605128790";
+            data.os = '';
+            data.wd = '';
+            data.sid = '2d17c89853e030d1098cbff0d5bd0210ae5f1055';
+            data.wh = window.screen.width + 'x' + window.screen.height ;
+            data.sampid = '14';
+            data.app = 'searchresult';
+            data.spat = 0 + '-' + '1-nj02-';
+
+            return data;
+        };
+        var _profiles = {
+            'slider': {
+                _url: 'http://imgstat.baidu.com/17.gif',
+                etype: 'slide'
+            },
+            'scale': {
+                _url: 'http://imgstat.baidu.com/17.gif',
+                etype: 'scale'
+            }
+        };
+        var speed = {
+            set: function (key, value) {
+                if (key) {
+                    data[key] = value || 0;
+                }
+            },
+            get: function (key) {
+                return data[key] || ('start' === key && start);
+            },
+            mark: function (key, value, ts) {
+                if (undefined === value) {
+                    value = new Date - start;
+                }
+                if (true === ts) {
+                    value = value - start;
+                }
+                data[key] = value;
+            },
+            send: function (ext) {
+                if (ext) {
+                    for (var key in ext) {
+                        data[key] = ext[key];
+                    }
+                }
+                _mergeCommPara(data);
+                var queryString = createQuery(data);
+                new Image().src = url + '?' + queryString;
+            },
+            log: function (profile, data) {
+                var queryString = createQuery(data);
+                var pf = _profiles[profile];
+                var a = [];
+
+                _mergeCommPara(data);
+                for (var p in pf) {
+                    if (p.indexOf('_') !== 0) {
+                        data[p] = pf[p];
+                    }
+
+                }
+                for (var p in data) {
+                    a.push(p + '=' + data[p]);
+                }
+
+
+                (new Image).src = pf._url + '?' + a.join('&');
+            }
+        };
+        context.speed = speed;
+
+        (function () {
+            window.logid = "15998905291605128790";
+            loaded = 0;
+            window.addEventListener('beforeunload', function () {
+                if (!loaded) {
+                    speed.mark('leave');
+                    speed.send();
+                }
+            });
+
+            window.addEventListener('load', function () {
+                loaded = 1;
+            });
+        })();
+    })(window);
+</script>
+
+
+<html>
+
+
+<!--STATUS OK-->
+
+<head>
+
+<meta http-equiv='Content-Type' content="text/html; charset=utf-8">
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<noscript>
+<meta http-equiv="refresh" content="0;url=/i?ct=201326592&lm=-1&tn=baiduimagenojs&ipn=rnj&pv=&word=%E5%A4%AA&z=0&pn=0&rn=20&cl=2&ie=utf-8">
+
+<style>table,.p{display:none}</style>
+
+</noscript>
+
+<title>
+太_百度图片搜索</title>
+<script>
+    void function(g,f,j,c,h,d,b){g.alogObjectName=h,g[h]=g[h]||function(){(g[h].q=g[h].q||[]).push(arguments)},g[h].l=g[h].l||+new Date,d=f.createElement(j),d.async=!0,d.src=c,b=f.getElementsByTagName(j)[0],b.parentNode.insertBefore(d,b)}(window,document,"script","http://img.baidu.com/hunter/alog/alog.min.js","alog");void function(){function c(){return;}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date);alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:c,tti:c,page_ready:c}}();void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>
+
+
+
+<script type="text/javascript" src="http://img0.bdstatic.com/static/common/mod_6f6741d.js"></script>
+
+<script>
+    //记录页面开始时间
+    window.pageStartTime = (new Date()).getTime();
+   // window.scrollTo(0, 0);
+</script>
+
+<link rel="stylesheet" type="text/css" href="http://img0.bdstatic.com/static/common/pkg/framework_a7cddec.css"/><link rel="stylesheet" type="text/css" href="http://img1.bdstatic.com/static/searchresult/pkg/result_dc607de.css"/><link rel="stylesheet" type="text/css" href="http://img1.bdstatic.com/static/common/pkg/fmdetail_fa8b62f.css"/><link rel="stylesheet" type="text/css" href="http://img1.bdstatic.com/static/common/widget/ui/slider/slider_ecce195.css"/><link rel="stylesheet" type="text/css" href="http://img0.bdstatic.com/static/common/widget/ui/userInfo/userInfo_a648c39.css"/><link rel="stylesheet" type="text/css" href="http://img2.bdstatic.com/static/common/widget/loginbar/loginbar_24cb9d3.css"/></head>
+<script> alog('speed.set', 'ht', +new Date); </script><body class="">
+<script type="text/javascript">require.siteNS && require.siteNS(["searchresult", "common"]);require.resourceMap({"res":{"common:widget/ui/base/base.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/base/base_edfda2f.js","pkg":"common:p7"},"common:widget/ui/base/EventDispatcher.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/base/EventDispatcher_e71d337.js","pkg":"common:p7"},"common:widget/ui/base/utils.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/base/utils_2f9a00e.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/base/events.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/base/events_62f15e7.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/EventDispatcher.js"]},"common:widget/ui/base/subject.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/base/subject_7c3c6c3.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/EventDispatcher/EventDispatcher.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/arch/EventDispatcher/EventDispatcher_8702fa4.js","pkg":"common:p7"},"common:widget/ui/arch/base/base.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/arch/base/base_0e90fd8.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/Component/Component.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/arch/Component/Component_e134e3c.js","pkg":"common:p7","deps":["common:widget/ui/arch/base/base.js","common:widget/ui/arch/EventDispatcher/EventDispatcher.js"]},"common:widget/ui/arch/Model/Model.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/arch/Model/Model_2c15502.js","pkg":"common:p7","deps":["common:widget/ui/arch/base/base.js","common:widget/ui/arch/Component/Component.js"]},"common:widget/ui/arch/utils/utils.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/arch/utils/utils_7e0dae1.js","pkg":"common:p7"},"common:widget/ui/arch/View/magic/magic.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/View/magic/magic_df72328.js","pkg":"common:p7"},"common:widget/ui/arch/events/keymap.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/arch/events/keymap_6136b7f.js","pkg":"common:p7"},"common:widget/ui/arch/events/hover.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/events/hover_f79dedf.js","pkg":"common:p7","deps":["common:widget/ui/arch/base/base.js"]},"common:widget/ui/arch/events/events.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/arch/events/events_cddfe60.js","pkg":"common:p7","deps":["common:widget/ui/arch/events/keymap.js","common:widget/ui/arch/events/hover.js"]},"common:widget/ui/arch/View/View.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/View/View_27e228b.js","pkg":"common:p7","deps":["common:widget/ui/arch/base/base.js","common:widget/ui/arch/Component/Component.js","common:widget/ui/arch/Model/Model.js","common:widget/ui/arch/utils/utils.js","common:widget/ui/arch/View/magic/magic.js","common:widget/ui/arch/events/events.js"]},"common:widget/ui/arch/ViewPool/ViewPool.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/arch/ViewPool/ViewPool_e856600.js","pkg":"common:p7","deps":["common:widget/ui/arch/base/base.js","common:widget/ui/arch/Component/Component.js"]},"common:widget/ui/arch/router.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/arch/router_1670dcf.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/app.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/arch/app_c1dac05.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/arch/router.js"]},"common:widget/ui/arch/debug/debug.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/debug/debug_de1a4ea.js","pkg":"common:p7"},"common:widget/ui/arch/arch.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/arch_5a1da58.js","pkg":"common:p7","deps":["common:widget/ui/arch/base/base.js","common:widget/ui/arch/EventDispatcher/EventDispatcher.js","common:widget/ui/arch/Component/Component.js","common:widget/ui/arch/View/View.js","common:widget/ui/arch/Model/Model.js","common:widget/ui/arch/ViewPool/ViewPool.js","common:widget/ui/arch/debug/debug.js","common:widget/ui/arch/utils/utils.js","common:widget/ui/arch/View/magic/magic.js"]},"common:widget/ui/arch/behavior/animation.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/arch/behavior/animation_a13c479.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/utils.js","common:widget/ui/base/events.js"]},"common:widget/ui/arch/behavior/pageresizer.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/behavior/pageresizer_9f05f70.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/arch/behavior/scroller.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/behavior/scroller_2df5e38.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/arch/localdb.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/localdb_1fa8a65.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/collection.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/arch/collection_8624f21.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/arch/localdb.js"]},"common:widget/ui/arch/handlers.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/arch/handlers_2d9d42f.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/history.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/history_3e862a0.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/utils.js","common:widget/ui/base/events.js"]},"common:widget/ui/arch/model.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/arch/model_32910e4.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/pagemodel.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/pagemodel_69a8b3f.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/utils.js","common:widget/ui/base/events.js","common:widget/ui/arch/model.js"]},"common:widget/ui/arch/router/router.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/arch/router/router_517800e.js","pkg":"common:p7","deps":["common:widget/ui/arch/base/base.js","common:widget/ui/arch/Component/Component.js"]},"common:widget/ui/components/browser-storage/browser-storage.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/components/browser-storage/browser-storage_07d3f31.js","pkg":"common:p7"},"common:widget/ui/components/monitorRequest/monitorRequest.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/components/monitorRequest/monitorRequest_026fb4f.js","pkg":"common:p7"},"common:widget/ui/controls/dropdownlist/dropdownlist.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/controls/dropdownlist/dropdownlist_d30a37e.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/controls/message/message.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/controls/message/message_b52bc23.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/controls/suggestion/data.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/controls/suggestion/data_073e151.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/controls/suggestion/inputwatcher.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/controls/suggestion/inputwatcher_c8c396a.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/controls/suggestion/suggestionlist.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/controls/suggestion/suggestionlist_d6ba167.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/controls/suggestion/suggestion.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/controls/suggestion/suggestion_c38c1a8.js","pkg":"common:p7","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/controls/suggestion/data.js","common:widget/ui/controls/suggestion/inputwatcher.js","common:widget/ui/controls/suggestion/suggestionlist.js"]},"common:widget/ui/jquery/doT.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/jquery/doT_5cd6504.js","pkg":"common:p1"},"common:widget/ui/jquery/inherits.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/jquery/inherits_e750a24.js","pkg":"common:p1"},"common:widget/ui/jquery/jquery-1.10.2.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/jquery/jquery-1.10.2_e8e74cb.js","pkg":"common:p1"},"common:widget/ui/jquery/jquery-json.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/jquery/jquery-json_b117f3b.js","pkg":"common:p1"},"common:widget/ui/jquery/jquery-migrate-1.2.1.min.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/jquery/jquery-migrate-1.2.1.min_dd6c45f.js","pkg":"common:p1"},"common:widget/ui/jquery/jquery.cookie.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/jquery/jquery.cookie_ada89eb.js","pkg":"common:p1"},"common:widget/ui/jquery/jquery.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/jquery/jquery_0f51492.js","pkg":"common:p1","deps":["common:widget/ui/jquery/jquery-1.10.2.js","common:widget/ui/jquery/jquery-migrate-1.2.1.min.js","common:widget/ui/jquery/jquery.cookie.js","common:widget/ui/jquery/inherits.js","common:widget/ui/jquery/doT.js","common:widget/ui/jquery/jquery-json.js"]},"common:widget/ui/EventEmitter/EventEmitter.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/EventEmitter/EventEmitter_655344a.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/fmCheck/fmCheck.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/fmCheck/fmCheck_9675b47.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/monitorRequest/monitorRequest.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/monitorRequest/monitorRequest_cabcf84.js","pkg":"common:p1"},"common:widget/ui/Suggestion/Data.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/Suggestion/Data_7c76ba6.js","pkg":"common:p2","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"common:widget/ui/Suggestion/InputWatcher.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/Suggestion/InputWatcher_40c615f.js","pkg":"common:p2","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"common:widget/ui/Suggestion/SuggestionList.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/Suggestion/SuggestionList_d8f6dee.js","pkg":"common:p2","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"common:widget/ui/Suggestion/Suggestion.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/Suggestion/Suggestion_141ad1a.js","pkg":"common:p2","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js","common:widget/ui/Suggestion/Data.js","common:widget/ui/Suggestion/InputWatcher.js","common:widget/ui/Suggestion/SuggestionList.js"]},"common:widget/ui/swf/swf.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/swf/swf_b5294d0.js","pkg":"common:p2"},"common:widget/ui/browser-storage/browser-storage.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/browser-storage/browser-storage_e1560be.js","pkg":"common:p2"},"common:widget/ui/dropdownlist/dropdownlist.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/dropdownlist/dropdownlist_9ec603c.js","pkg":"common:p2","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/message/message.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/message/message_f019007.js","pkg":"common:p2","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/jDialog/jquery.drag.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/jDialog/jquery.drag_e3f3b03.js","pkg":"common:p2","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/jDialog/jquery.mask.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/jDialog/jquery.mask_6e04ef4.js","pkg":"common:p2","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/jDialog/jquery.dialog.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/jDialog/jquery.dialog_d76069d.js","pkg":"common:p2","deps":["common:widget/ui/base/base.js","common:widget/ui/jDialog/jquery.drag.js","common:widget/ui/jDialog/jquery.mask.js"]},"common:widget/ui/jDialog/jDialog.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/jDialog/jDialog_302cbd5.js","pkg":"common:p2","deps":["common:widget/ui/jDialog/jquery.dialog.js"]},"searchresult:widget/ui/app/noResultPage.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/app/noResultPage_112989f.js","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","searchresult:widget/ui/controls/userInfo/userInfo.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/ui/statistic/statistic.js"]},"common:widget/ui/slider/slider.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/slider/slider_545c0c2.js","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"common:widget/ui/passlogin/passlogin.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/passlogin/passlogin_582d056.js","pkg":"common:p3","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/searchUtils/searchUtils.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/searchUtils/searchUtils_17600ce.js","pkg":"common:p3","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/events/events.js":{"url":"http://img2.bdstatic.com/static/common/widget/ui/events/events_7036d87.js","deps":["common:widget/ui/base/base.js","common:widget/ui/arch/EventDispatcher/EventDispatcher.js"]},"common:widget/ui/utils/scroller.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/utils/scroller_efc1f29.js","deps":["common:widget/ui/base/base.js","common:widget/ui/events/events.js"]},"common:widget/ui/utils/pageresizer.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/utils/pageresizer_9feba52.js","deps":["common:widget/ui/base/base.js","common:widget/ui/events/events.js"]},"common:widget/ui/utils/utils.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/utils/utils_537ba22.js","deps":["common:widget/ui/utils/scroller.js","common:widget/ui/utils/pageresizer.js"]},"common:widget/ui/userInfo/userInfo.js":{"url":"http://img1.bdstatic.com/static/common/widget/ui/userInfo/userInfo_c0f2859.js","deps":["common:widget/ui/base/base.js","common:widget/ui/searchUtils/searchUtils.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js"]},"searchresult:widget/ui/app/pagemodel.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/app/pagemodel_ff6fd1d.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/utils.js","common:widget/ui/arch/pagemodel.js"]},"searchresult:widget/ui/app/history.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/app/history_1c67391.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/arch/history.js"]},"searchresult:widget/ui/utils/lib.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/utils/lib_2db3b3f.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/app/sizemanager.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/app/sizemanager_5f2d3af.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/utils.js","common:widget/ui/base/subject.js"]},"searchresult:widget/ui/utils/scroller.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/utils/scroller_c117ff7.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/utils/utils.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/utils/utils_eaf5384.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js"]},"searchresult:widget/ui/statistic/statistic.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/statistic/statistic_b7545da.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js","common:widget/ui/monitorRequest/monitorRequest.js","searchresult:widget/ui/app/pagemodel.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/morePageBox/morePageBox.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/morePageBox/morePageBox_63676f6.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/base/EventDispatcher.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/app/scrollmanager.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/app/scrollmanager_fe2fd6d.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/utils.js","searchresult:widget/ui/utils/scroller.js","common:widget/ui/base/subject.js","common:widget/ui/base/EventDispatcher.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/controls/morePageBox/morePageBox.js"]},"searchresult:widget/ui/models/filtermodel.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/models/filtermodel_988682b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/utils.js","common:widget/ui/base/events.js","common:widget/ui/arch/model.js"]},"searchresult:widget/ui/collections/imgcollection.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/collections/imgcollection_6c0167e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/arch/collection.js","searchresult:widget/ui/app/pagemodel.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/strategy/imglayoutstrategy.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/strategy/imglayoutstrategy_338a6a5.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js"]},"searchresult:widget/ui/strategy/insertstrategy.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/strategy/insertstrategy_befe93c.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js"]},"searchresult:widget/ui/config/base/config.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/config/base/config_2d45432.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js"]},"searchresult:widget/ui/controls/imgpagelist/cellBox/cellBox.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/cellBox/cellBox_de4bfb9.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/base/utils.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/controls/imgpagelist/FCADBox/FCADBox.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/FCADBox/FCADBox_f0ffcd9.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/base/utils.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/imgpagelist/imgpagelist.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/controls/imgpagelist/imgpagelist_08e91cb.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/base/utils.js","searchresult:widget/ui/utils/lib.js","searchresult:widget/ui/config/base/config.js","searchresult:widget/ui/controls/imgpagelist/cellBox/cellBox.js","searchresult:widget/ui/controls/imgpagelist/FCADBox/FCADBox.js"]},"searchresult:widget/ui/controls/hoverBox/hoverBox.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/hoverBox/hoverBox_520e045.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/memoryBar/memoryBar.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/memoryBar/memoryBar_9b98d40.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/app/page.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/app/page_4233eec.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","searchresult:widget/ui/app/history.js","common:widget/ui/arch/behavior/pageresizer.js","searchresult:widget/ui/utils/lib.js","searchresult:widget/ui/app/sizemanager.js","searchresult:widget/ui/app/scrollmanager.js","common:widget/ui/arch/handlers.js","searchresult:widget/ui/models/filtermodel.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/strategy/insertstrategy.js","searchresult:widget/ui/controls/imgpagelist/imgpagelist.js","searchresult:widget/ui/controls/hoverBox/hoverBox.js","searchresult:widget/ui/controls/memoryBar/memoryBar.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/app/app.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/app/app_9d09284.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/utils.js","common:widget/ui/arch/app.js","searchresult:widget/ui/app/pagemodel.js","searchresult:widget/ui/app/page.js"]},"searchresult:widget/ui/app/datacontroller.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/app/datacontroller_6f31519.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/action/base/imgcollectioin_setting.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/action/base/imgcollectioin_setting_8e62729.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/action/base/base.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/action/base/base_0af3a96.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/action/base/imgcollectioin_setting.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/app/page.js"]},"searchresult:widget/ui/controls/IqiyiVideoBox/IqiyiVideoBox.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/IqiyiVideoBox/IqiyiVideoBox_22a7b38.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/controls/filter/filterClass/filterClass.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/filterClass/filterClass_4320538.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js"]},"searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/filterConfig/filterConfig_b6156b7.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/sizeFilter/sizeFilter.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/sizeFilter/sizeFilter_b63ea4b.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/filter/filterClass/filterClass.js","searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/filter/colorFilter/colorFilter.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/colorFilter/colorFilter_6af9b9e.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js","searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js","searchresult:widget/ui/controls/filter/filterClass/filterClass.js"]},"searchresult:widget/ui/controls/filter/typeFilter/typeFilter.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/filter/typeFilter/typeFilter_477bb04.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/filter/filterConfig/filterConfig.js","searchresult:widget/ui/controls/filter/filterClass/filterClass.js"]},"searchresult:widget/ui/controls/RsBox/RsBox.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/RsBox/RsBox_5deff38.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/relsearchBox/relsearchBox.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/relsearchBox/relsearchBox_85cdbcd.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/fixedSearchBox/fixedRSBox/fixedRSBox.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/controls/fixedSearchBox/fixedRSBox/fixedRSBox_5db188d.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/suggBox/SugRec/SugRec.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/suggBox/SugRec/SugRec_c01b540.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/controls/suggBox/suggBox.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/suggBox/suggBox_bf87cca.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/Suggestion/Suggestion.js","searchresult:widget/ui/controls/suggBox/SugRec/SugRec.js"]},"searchresult:widget/ui/controls/fixedSearchBox/fixedSearchBox.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/controls/fixedSearchBox/fixedSearchBox_85880f6.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/fixedSearchBox/fixedRSBox/fixedRSBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/feedback/feedback.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/feedback/feedback_6c2b543.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/ReportBox/ReportBox.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/ReportBox/ReportBox_afcf384.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/feedback/feedback.js","searchresult:widget/ui/app/page.js"]},"searchresult:widget/ui/controls/hotwordBox/hotwordBox.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/hotwordBox/hotwordBox_36439eb.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/newsSliderBox/pageresizer.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/newsSliderBox/pageresizer_7d7adbc.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/newsSliderBox/newsSliderBox.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/newsSliderBox/newsSliderBox_c27db2e.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/slider/slider.js","common:widget/ui/base/events.js","common:widget/ui/EventEmitter/EventEmitter.js","searchresult:widget/ui/controls/newsSliderBox/pageresizer.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/specicalRecBox/specialRecBox.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/specicalRecBox/specialRecBox_55def1b.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/festivalLogo/FestivalLogo.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/festivalLogo/FestivalLogo_7d2c1a5.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/floatBoxClass/floatBoxClass_b8f2a9c.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/floatBox/AldBox/AldBox.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/AldBox/AldBox_1a8b1b9.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/controls/mapBox/ZoomProvider/ZoomProvider.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/mapBox/ZoomProvider/ZoomProvider_9ba4c1b.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/mapBox/DragSupport/DragSupport.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/mapBox/DragSupport/DragSupport_d8bfe75.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/controls/mapBox/mapBox.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/mapBox/mapBox_6308a97.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","common:widget/ui/base/events.js","searchresult:widget/ui/controls/mapBox/ZoomProvider/ZoomProvider.js","searchresult:widget/ui/controls/mapBox/DragSupport/DragSupport.js"]},"searchresult:widget/ui/controls/floatBox/baikeBox/baikeBox.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/baikeBox/baikeBox_6016750.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/controls/floatBox/starBox/starBox.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/starBox/starBox_2943fbe.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/controls/adsearchBox/adsearchBox.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/adsearchBox/adsearchBox_c35607b.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ui/controls/filter/InteractFilter/InteractFilter.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/filter/InteractFilter/InteractFilter_ae23e39.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/InteractFilter/tagData/tagData.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/controls/filter/InteractFilter/tagData/tagData_4cb2061.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/indicator/indicator.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/controls/filter/indicator/indicator_c9ab8b8.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/filter/wallpaperFliter/wallpaperFilter.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/controls/filter/wallpaperFliter/wallpaperFilter_11b8153.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/floatBox/comicBox/comicBox.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/comicBox/comicBox_355b2ba.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/controls/floatBox/floatBoxClass/floatBoxClass.js"]},"searchresult:widget/ui/controls/floatBox/fcAdBox/fcAd.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/controls/floatBox/fcAdBox/fcAd_68311f2.js","pkg":"searchresult:p1"},"searchresult:widget/ui/utils/timeline.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/utils/timeline_a2f3f77.js","pkg":"searchresult:p1"},"searchresult:widget/ui/controls/imgPopBox/imgPopBox.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/controls/imgPopBox/imgPopBox_5bef16c.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/timeline.js","common:widget/ui/base/events.js"]},"searchresult:widget/ui/statistic/statistic-core.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/statistic/statistic-core_69709d2.js","pkg":"searchresult:p1"},"searchresult:widget/ui/strategy/filterStrategy.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/strategy/filterStrategy_62db5da.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/utils/imghelper.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/ui/utils/imghelper_f70f1d0.js","pkg":"searchresult:p1"},"searchresult:widget/ui/utils/pms.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/utils/pms_61658b8.js","pkg":"searchresult:p1"},"searchresult:widget/ui/utils/swf.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ui/utils/swf_d14d2d6.js","pkg":"searchresult:p1"},"searchresult:widget/searchBox/shitu/init.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/searchBox/shitu/init_a98ea41.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/swf/swf.js","common:widget/ui/base/events.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/searchBox/imgFilter/init.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/searchBox/imgFilter/init_e3b5bb3.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ad/sning3/sning3.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ad/sning3/sning3_6ef9fe6.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/sning1/sning1.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ad/sning1/sning1_05175fc.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/ecom199/init.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/ad/ecom199/init_d7dd1e2.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/ad/sning2/sning2.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ad/sning2/sning2_f9a25ae.js","pkg":"searchresult:p1","deps":["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/pagelets/base/backTop/init.js":{"url":"http://img0.bdstatic.com/static/searchresult/widget/pagelets/base/backTop/init_80f9eeb.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/statistic/statistic.js"]},"searchresult:widget/pagelets/base/SEResult/SEResult.js":{"url":"http://img1.bdstatic.com/static/searchresult/widget/pagelets/base/SEResult/SEResult_1e06445.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js"]},"searchresult:widget/ui/app/lazyPage.js":{"url":"http://img2.bdstatic.com/static/searchresult/widget/ui/app/lazyPage_1cbc195.js","pkg":"searchresult:p1","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/filter/sizeFilter/sizeFilter.js","searchresult:widget/ui/controls/filter/colorFilter/colorFilter.js","searchresult:widget/ui/controls/filter/typeFilter/typeFilter.js","searchresult:widget/ui/controls/RsBox/RsBox.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","searchresult:widget/ui/controls/fixedSearchBox/fixedSearchBox.js","common:widget/ui/userInfo/userInfo.js","searchresult:widget/ui/controls/ReportBox/ReportBox.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/statistic/statistic.js"]},"common:widget/ui/loginBox/loginBox.js":{"url":"http://img0.bdstatic.com/static/common/widget/ui/loginBox/loginBox_b832e6f.js"},"common:widget/loginbar/loginbar.js":{"url":"http://img2.bdstatic.com/static/common/widget/loginbar/loginbar_f08c999.js","deps":["common:widget/ui/base/base.js","common:widget/ui/loginBox/loginBox.js","common:widget/ui/base/EventDispatcher.js"]}},"pkg":{"common:p7":{"url":"http://img0.bdstatic.com/static/common/pkg/fmdetail_a457a00.js"},"common:p1":{"url":"http://img1.bdstatic.com/static/common/pkg/framework_e1b4df3.js"},"common:p2":{"url":"http://img1.bdstatic.com/static/common/pkg/extend_edb5344.js"},"common:p3":{"url":"http://img0.bdstatic.com/static/common/pkg/module_a6ba798.js"},"searchresult:p1":{"url":"http://img1.bdstatic.com/static/searchresult/pkg/result_66775df.js"}}});</script>
+<div id="search">
+<script>
+var commonHeaderConf = {
+	sugProdName: "image",
+	searchInputId: "kw"
+};
+void function(w){
+	window.setHeadUrl= function(o){
+		var links = {
+		i_news:['word','http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&ie=utf-8',1],
+        i_webpage:['wd','https://www.baidu.com/s?ie=utf-8',1],
+		i_tieba:['kw','http://tieba.baidu.com/f?ie=utf-8',1],
+		i_zhidao:['word','http://zhidao.baidu.com/q?ct=17&pn=0&tn=ikaslist&rn=10&lm=0&ie=utf-8',1],
+		i_mp3:['key','http://music.baidu.com/search?fr=img&ie=utf-8',1],
+		i_video:['word','http://v.baidu.com/v?ct=301989888&s=25&ie=utf-8',1],
+		i_map:['wd','http://map.baidu.com/?newmap=1&ie=utf-8&s=s',2],
+		i_baike:['word','http://baike.baidu.com/search/word?pic=1&sug=1&enc=utf8',1],
+		i_wenku:['word','http://wenku.baidu.com/search?ie=utf-8',1]
+		},
+		name = o.name,
+		items = links[name],
+		kw = document.getElementById(w),
+		reg = new RegExp('^\\s+|\\s+\x24'),
+		key = kw.value.replace(reg,'');
+		if(items){
+			if(key.length > 0){
+				var wd = items[0],
+					url = items[1],
+					proSign = items[2];
+				url = pro(url,wd,key,proSign);
+				o.href = url;
+
+			}else{
+				o.href = o.href.match(new RegExp('^http:\/\/.+\\.baidu\\.com'))[0];
+			}
+            if(!o.clickHandle){
+                o.onclick = function(e){
+                    if(typeof p === 'function'){
+                        e = e || window.event;
+                        p(e, 52, {isAsyn : true, to : this.name, href : this.href});
+                    }
+
+                };
+                o.clickHandle = true;
+            }
+		}
+		function pro(url,wd,key,proSign){
+			/*日文片假部分乱码\u30f7--\u30fb,转换成实体*/
+			function HtmlEncodeAndComponent(inTXT){
+				/*地图，uri编码，不转换成实体*/
+				if(proSign==2){
+					return encodeURIComponent(key);
+				}
+				var hexArray =[],entityCode = '',finalKey = '', character='',tmpInt=0;
+				for(i=0; i<inTXT.length; i++){
+					character = inTXT.charCodeAt(i).toString(16).toUpperCase();
+					tmpInt = parseInt(character,16);
+					if(tmpInt>=0x30f7&&tmpInt<=0x30fb){
+						decCode = tmpInt.toString(10);
+						entityCode = '&#'+decCode+';';
+						finalKey += encodeURIComponent(entityCode);
+
+					}else{
+						entityCode = inTXT.charAt(i);
+						if(proSign>0){
+							finalKey += encodeURIComponent(entityCode);
+						}else{
+							finalKey += entityCode;
+						}
+					}
+				}
+				return finalKey;
+			}
+			var prefix = (url.indexOf('?')>0?'&':'?') + wd +'=';
+			if(proSign == 2){
+				prefix = encodeURIComponent(prefix);
+			}
+			key = HtmlEncodeAndComponent(key);
+			return url + prefix + key;
+		}
+	}
+}(commonHeaderConf.searchInputId);
+</script>
+<div class="s_tab">
+<a href="http://news.baidu.com/" onmousedown="setHeadUrl(this)" name="i_news">新闻</a>&#12288;<a href="https://www.baidu.com/"  onmousedown="setHeadUrl(this)" name="i_webpage" >网页</a>&#12288;<a href="http://tieba.baidu.com/" onmousedown="setHeadUrl(this)" name="i_tieba">贴吧</a>&#12288;<a href="http://zhidao.baidu.com/" onmousedown="setHeadUrl(this)" name="i_zhidao" >知道</a>&#12288;<a href="http://music.baidu.com/" onmousedown="setHeadUrl(this)" name="i_mp3" class="eng">音乐</a>&#12288;<b>图片</b>&#12288;<a href="http://v.baidu.com/" onmousedown="setHeadUrl(this)" name="i_video" >视频</a>&#12288;<a href="http://map.baidu.com/" onmousedown="setHeadUrl(this)" name="i_map" >地图</a>&#12288;<a href="http://baike.baidu.com/" onmousedown="setHeadUrl(this)" name="i_baike">百科</a>&#12288;<a href="http://wenku.baidu.com/" onmousedown="setHeadUrl(this)" name="i_wenku">文库</a>
+</div>
+<a href="/" class="s_logo">
+<img src="http://img0.bdstatic.com/img/image/imglogo-r.png" style="width:137px; height:46px;" alt="到 百度图片首页 来" title="返回 百度图片首页">
+</a>
+<div class="s_nav">
+<form action="/search/index" class="searchform" name="f1" onsubmit="return s_submit(this,true)">
+<input type="hidden" name="tn" value="baiduimage">
+<input type="hidden" name="ipn" value="r">
+<input name="ct" type="hidden" value="201326592">
+<input name="cl" type="hidden" value="2">
+<input name="lm" type="hidden" value="-1">
+<input name="st" type="hidden" value="-1">
+<input name="fm" type="hidden" value="result">
+<input name="fr" type="hidden" value="">
+<input name="sf" type="hidden" value="1">
+<input name="fmq" type="hidden" value="">
+<input name="pv" type="hidden" value="">
+<input name="ic" type="hidden" value="0">
+<input name="nc" type="hidden" value="1">
+<input name="z" type="hidden" value="">
+<input name="se" type="hidden" value="">
+<input name="showtab" type="hidden" value="0">
+<input name="fb" type="hidden" value="0">
+<input name="width" type="hidden" value="">
+<input name="height" type="hidden" value="">
+<input name="face" type="hidden" value="0">
+<input name="istype" type="hidden" value="2">
+<input name="ie" type="hidden" value="utf-8">
+<span class="s_ipt_wr"><input id="kw" name="word" class="s_ipt" value="太" autocomplete="off" /></span><span class="s_btn_wr"><input type="submit" class="s_btn" onmousedown="this.className='s_btn s_btn_h'" onmouseout="this.className='s_btn'"  value="百度一下"   /></span>
+</form><div id="stcontent">
+<a class="sttb" hidefocus="true" id="sttb" href="javascript:void(0)" title="上传图片，搜索相关信息"><img src="http://img0.bdstatic.com/img/image/shitulogo-r.png" width="22" height="17"></a>
+<div id="stsug" class="stsug" style="display:none">
+<div id="sthead">搜索图片信息</div>
+<form id="form1" target="_self" enctype="multipart/form-data" action="/pictureup/uploadshitu" method="get" name="form1">
+<div id="sturl">
+<span class="stuwr"><input type="text" id="stuurl" value="" autocomplete="off"  class="stuurl"   name="objurl" /></span><span class="stsb"><input type="submit" id="sbobj" class="stsb2" onmousedown="this.className='stsb2 stsb3'" onmouseout="this.className='stsb2'" value="百度一下" /></span>
+</div>
+<input name="filename" id="filename" value="" type="hidden">
+<input name="rt" value="0" type="hidden">
+<input name="rn" value="10" type="hidden">
+<input id="stftn" name="ftn" value="searchresult" type="hidden">
+<input name="ct" value="1" type="hidden">
+<input name="stt" value="0" type="hidden">
+<input name="tn" value="shituresultpc" type="hidden">
+<input id="shitu1" name="uptype" value="paste" type="hidden">
+<input  name="fm" value="searchresult" type="hidden"></form>
+<div class="stf">
+<form id="form2" target="_self" enctype="multipart/form-data" action="/pictureup/uploadshitu" method="post" name="form2">
+<a id="uploadImg" href="javascript:void(0)">从本地上传<input type="file" name="image" id="stfile" size="1"><span id="flashcontent"></span></a>
+<span class="partition">|</span>
+<span class="posturl">粘贴图片网址<img id="sthelp" src="http://img0.bdstatic.com/img/image/inputurl-info.png" width="13" height="13"/></span>
+<span class="tips">提示：您也可以把图片拖到这里</span>
+<input id="shitu2" name="pos" value="" type="hidden">
+<input id="shitu1" name="uptype" value="upload_pc" type="hidden">
+<input name="fm" value="searchresult" type="hidden">
+</form>
+</div>
+<div class="stmore" id="stmore" style="display:none;">
+<span class="pointo"></span>
+<b>如何粘贴图片网址</b>
+<ul>
+<li>右键点击网页上的图片，选择“复制图片网址”</li>
+<li>在搜索框中，粘贴该网址(Ctrl+V)，点击“百度一下”</li>
+</ul>
+<div class="left-border"></div>
+<div class="right-border"></div>
+</div>
+<a class="closest" href="javascript:void(0)" id="closest" title="关闭">关闭</a>
+<div id="point" style="display:none;">
+<img src="http://img0.bdstatic.com/static/searchresult/img/uploading_ca6dc69.gif" /><span>上传中，请稍候...</span>
+</div>
+<div id="dragtip" style="display:none;">
+<div>搜索图片信息</div>
+<span>将图片拖到此处</span>
+</div>
+<div class="left-border"></div>
+<div class="right-border"></div>
+</div>
+</div>
+<script type="text/javascript">
+    window.ss = function(){
+        var URL = 'http://imgstat.baidu.com/9.gif?rainbow=1&';
+        function request(url){
+            var seed = Math.random();
+            var img = window[seed] = new Image;
+            img.onload = img.onerror = function(){
+                window[seed] = null;
+                img.onload = img.onerror = null;
+                img = null;
+            };
+            img.src = url;
+        }
+
+        /* p = 0, 首页八张demo图片点击统计
+         * p = 1, 结果页tab相关： name=stu相同tab显示；name=face 人脸搜索tab显示; type=show展现；type=click点击
+         * p = pv, 结果页PV统计：data=1，有结果；data=0无结果；data=-1，down页面
+         **/
+
+        return function(arg, url, e){
+            var s = URL + json2Query(arg) + '&' + Math.random();
+            request(s);
+            if(url){
+                setTimeout(function(){
+                    location.href = url;
+                }, 300);
+                e = e || window.event;
+                if(e){
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                }
+
+            }
+        };
+
+    }();
+    window.__originTitle = document.title;
+    function json2Query(json){
+        if(json == null || typeof json !="object") return json;
+        var query = [];
+        for(var i in json){
+            if(i!="")
+                query[query.length]=i+"="+json[i];
+        }
+        return query.join("&");
+    }
+    /**
+     * flash初始化完成
+     */
+    function flashInitCallback(){
+        setTimeout(function(){
+            document.title = window.__originTitle;
+        }, 1000);
+
+        window.useFlashUp = true;
+    };
+    /**
+     * 选择好文件通知flash上线
+     */
+    function notiUpload(){
+        statistic(null,1111102,{"pos":"fileupload","fm":"searchresult"});
+        document.title = window.__originTitle;
+        stInstance.showLoading();
+    };
+    /**
+     * 整个上传是否成功
+     */
+    function returnState(boo,result){
+        document.title = window.__originTitle;
+        if(!boo){
+            stInstance.hideLoading();
+            alert("对不起，上传失败，请重新上传.");
+            return false;
+        }else if(boo){
+            window.ss&window.ss({type:'searchNum',p:'uploadSearch',form:'searchresult',flash:'1'});
+            window.location.href=result;
+        };
+    };
+
+    /*用户关闭flash文件选择框*/
+    function filePickerEnd(){
+        document.title = window.__originTitle;
+    }
+</script>
+</div>
+<div id="imgfilter">
+<a id="imgfilter-btn" class="filter-open" href="javascript:;">
+<span class="imgfilter-text">图片筛选</span>
+<span class="imgfilter-arrow"></span>
+</a>
+<div id="filter-holder" style="display:none">
+<span class="holder-arrow"></span>
+<div id="top-filter-hoder">
+<div id="filter-container">
+<div class="filter" id="filter">
+<div id="typeFilter" class="subFilter"></div>
+<div id="colorFilter" class="subFilter"></div>
+<div id="sizeFilter" class="subFilter sizeFilter"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="questionnaire-material">
+<a href="http://wenjuan.baidu.com/?code=jnzl1h" target="_blank">素材需求有奖问卷>></a>
+</div><div id="topInfoBar">
+<div id="topRS"></div>
+</div>
+<div id="specialQuery"></div>
+<div id="browser-hotword"></div>
+</div>
+
+
+
+<script>
+    window.vsid = '031e2148f8236dbd047a2a4cc78c35338db17883';
+</script>
+<div id="wrapper">
+<div id="pnlBeforeContent">
+<div class="news-slider"></div>
+<div id="smeContainer" style="display:none;">
+</div>
+</div>
+<div id="imgContainer" >
+<div id="pnlBeforeImgList">
+<div class="memory-con" id="memoryBar" style="display: none;">您收藏时已经看到第<span class="memory-page">10</span>页，<span><a class="memory-link">点击直达</a></span><a class="memory-close"></a></div>
+<table cellpadding=0 cellspacing=0 id="relEcom">
+<tr>
+<td valign="top" id="relecom11">
+</td>
+</tr>
+</table>
+<div style="clear:both;"></div>
+</div>
+<div id="specialRecommend"></div>
+<div id="imgid">
+</div>
+<div id="lastPage" style="position:relative;overflow:hidden;padding-left:50px;zoom:1;display:none;">
+为给您提供最相关的图片结果，百度已省略与以上结果相类似的图片，您可<a href="/">点此查看更多搜索结果</a>。</div>
+<div id="ajaxInfo"></div>
+<div id="noPage" >
+<div id="dataNone" style="margin:0 0 0 15px;;font-size:14px;line-height:20px;">
+抱歉，在该筛选条件下，没有找到与<font color="#C60A00">太</font>相关的图片。</div>
+<div id="stdNone" style="margin:0 0 0 15px;;font-size:14px;line-height:20px;">
+<br>
+<br>
+<font class="fB" style="font-size:14px">百度建议您：</font>
+<div style="font-size:14px;margin-top:0px;">
+<li id="listSetDefault">将筛选功能<a href="/search/index?ct=201326592&z=&s=&tn=baiduimage&ipn=r&word=%E5%A4%AA&ie=utf-8&oe=utf-8&lm=-1&st=-1&z=&se=0&fr=&pn=0&width=&height=&face=0&ct=503316480" onclick="" >恢复默认状态</a></li>
+<li>修改当前的筛选条件</li>
+<li >看看输入的文字是否有误</li>
+</div>
+<div id=DivPost style="margin-top:0px;margin-left:15px;"></div>
+</div>
+</div></div>
+<div style="clear:both;"></div>
+<p href="javascript:void(0);" id="loading"><img style="width:50px;height:54px;"/></p>
+<div id="pageMoreWrap">
+<a href="javascript:void(0);" onmousedown="p(null,499,{domid:'pageMore',type:'click'})" id="pageMore">加载更多图片</a>
+<div id="resultInfo">找到相关图片约1,370,000张</div>
+</div><div id="pnlAfterContent" style="display:none">
+<div id="cmsimage">
+<div id="hotWordDiv"></div>
+</div>
+</div>
+</div>
+<div id="loginbar" style="display:none;">
+<div class="loginbar-inner">
+<div class="login-png"></div>
+<a class="baidulogin" href="javascript:;">百度账号登陆</a>
+<span>或</span>
+<a class="baidureg" href="javascript:void(0);">注册</a>
+</div>
+<a class="loginbar-close" href="javascript:;">关闭</a>
+</div>
+<script>
+    window.alogObjectConfig = {
+        product: '11',
+        page: '2', 
+        speed_page: '2',  
+ 
+        speed: {
+            sample: '0.01'   
+        },
+ 
+       
+        monkey: {
+            sample: '0.01'   
+        },
+ 
+        exception: { 
+            sample: '0.01' 
+        },
+ 
+        feature: {
+            sample: '0.01'
+        },
+ 
+        
+        cus: {
+            sample: '0.01' 
+        },
+ 
+        csp: {
+            sample: '0.01',
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    // pc和mobile端会稍有不同，必须严格按照该文档来部署，该段代码必须放在上面的window.alogObjectConfig配置之后
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;if("https:"===a.location.protocol){if(d="https://gss2.bdstatic.com/70cFsjip0QIZ8tyhnq"+d,!k||!l)return}else d="http://img.baidu.com"+d;k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>
+<script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+</script>
+<a id="backTop" href="javascript:;" data-title="返回顶部"><div class="btn-inner-text">返回顶部</div></a>
+<a id="appLauncher" href="javascript:;" data-title="app入口">
+<div class="btn-inner-text">APP</div>
+<div class="appURL">
+<div class="QR-code"></div>
+<div>八亿人都在用掌上</div>
+<div class="highlight">【搜图神器】</div>
+<div class="after"></div>
+</div>
+</a>
+<a href="javascript:;" id="report_link" data-title="举报图片"><div class="btn-inner-text">举报</div></a>
+<div id='userInfo' class="display:none">
+<a target='_blank' href='http://www.baidu.com/'>百度首页</a>
+</div>
+
+
+<script>
+    (function () {
+        var pos = '';
+        if (pos == 1) {
+            pos = '-title';
+        } else if (pos == 3) {
+            pos = '-more';
+        } else {
+            pos = '';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var net = 0;
+            var isPreLoaded = 0;
+            var start = speed.get('start');
+
+            if(window.performance){
+                net = window.performance.timing.navigationStart;
+            }
+            net && speed.mark('net', start - net);
+            speed.mark('preloaded', isPreLoaded);
+            speed.mark('domc');
+            // 针对chrome细分数据
+            if (window.performance && window.performance.timing) {
+                var timing = window.performance.timing;
+                // tcp connct时间
+                speed.mark('dnst', timing.domainLookupEnd - timing.domainLookupStart);
+                // dns解析时间
+                speed.mark('cot', timing.connectEnd - timing.connectStart);
+                // 首字节返回时间点
+                speed.mark('rpnt', timing.responseStart);
+                if (net) {
+                    // tc跳板时间
+                    speed.mark('tct', timing.navigationStart - net);
+                    // 网络开始时间点
+                    speed.mark('nets', net);
+                }
+                speed.mark('connectStart', timing.connectStart);
+            }
+        }, false);
+
+        window.addEventListener('load', function () {
+
+            speed.mark('load');
+            LazySend();
+        }, false);
+
+        function LazySend() {
+//            if (speed.firstScCount == 5) {
+                speed.mark('frm', '');
+                speed.send();
+//            } else {
+//                setTimeout(LazySend, 1000);
+//            }
+        }
+    })();
+</script>
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src=_bdhmProtocol + 'hm.baidu.com/h.js?737dbb498415dd39d8abf5bc2404b290'];
+</script>
+
+
+</body><script type="text/javascript">!function(){    var sample = {"FDS_RP_WISEINDEX":"1","UI_YUNYING_11":"1","UI_YUNYING_13":"1","UI_YUNYING_21":"0","UI_YUNYING_31":"1","UI_WISE_RES_SPEED":"0","UI_SHITU_PC_RESULT":"0","UI_RSC_STRATEGY":"0","FDS_SAMPLE_HISTORY":"1"};
+    var keyValue = '';
+    for(var name in sample) {
+        keyValue +=  name + ':' + sample[name] + ',';
+    }
+    window.samplekey = keyValue.substr(0, keyValue.length - 1);
+}();
+!function(){
+require.async(['searchresult:widget/ui/app/app'], function (app) {
+    require.async(['searchresult:widget/ui/action/base/base']);
+    app.setPageInfo({
+        // 在后端对query进行抽样的时候，用这个来统计实验组和对照组
+        queryPageType : '0',
+        tag_type: '',
+        tag: '',
+        subtag: '',
+        gsm: '1e',
+        listNum : '1993',
+        dispNum : '1378189',
+        bdIsClustered : '1',
+        fr : '',
+        sme : '',
+        ie : 'utf-8',
+        oe : 'utf-8',
+        queryWordEnc: '%E5%A4%AA',
+        queryWordGBKEnc: '%CC%AB',
+        queryWord : '太',
+        queryUrlWord : '%E5%A4%AA',
+        bdFmtDispNum : '1378189',
+        bdSearchTime : '',
+        gbkword:'%CC%AB',
+        resTabs : [],
+        userid:'',
+        useSign:'',
+        userNumID:'', // 这个才是真正的 userid
+        encodeUserNumId:'',
+        spaceUrl:'',
+        hasUserName: ('' == '0'),
+        bdstoken : '',
+        thirdLogo :'0', // 第三方网站登录的logo，为空则不显示
+        se:'',
+        needIE:'1',
+        jit:'',
+        showHot:'',
+        hasResult: '1',
+        aspSID:'b5d828083477cd77',
+        oriquery: '',
+        fm: '',
+        personalized:'0'
+    });
+    app.setData('imgData', {    "queryEnc":"%E5%A4%AA",    "displayNum":1378189,    "bdIsClustered" : "1",    "listNum":1993,    "bdFmtDispNum" : "1378189",    "bdSearchTime" : "",    "isNeedAsyncRequest":0,    "data":[{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=2929716696,3999724316&fm=206&gp=0.jpg",            "middleURL":"http://img4.imgtn.bdimg.com/it/u=2929716696,3999724316&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":0,            "objURL":"http://pic1.ooopic.com/uploadfilepic/ziku/2008-08-25/OOOPIC_vipvip4_200808250403443c3b0c88cf472cb7171.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B555rtv_z&e3Bv54AzdH3Frtv_80amc9_z&e3Bip4s",            "fromURLHost":"www.ooopic.com",            "currentIndex":"",            "width":285,            "height":255,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"53561473350",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>模板下载(图片编号:170654)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "2929716696,3999724316",            "os" : "2403916862,3742644575",            "simid" : "4220240673,785049079",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2366997570,2604636329&fm=206&gp=0.jpg",            "middleURL":"http://img1.imgtn.bdimg.com/it/u=2366997570,2604636329&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":1,            "objURL":"http://pic1.ooopic.com/uploadfilepic/ziku/2008-08-25/OOOPIC_vipvip4_20080825040154de51eb3c84659490125.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B555rtv_z&e3Bv54AzdH3Frtv_80aman_z&e3Bip4s",            "fromURLHost":"www.ooopic.com",            "currentIndex":"",            "width":284,            "height":253,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"115567796190",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>模板下载(图片编号:170603)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "2366997570,2604636329",            "os" : "2665185009,2559559400",            "simid" : "4171261626,799092317",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2329896941,3328884607&fm=206&gp=0.jpg",            "middleURL":"http://img2.imgtn.bdimg.com/it/u=2329896941,3328884607&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":2,            "objURL":"http://pic1.ooopic.com/uploadfilepic/ziku/2008-08-25/OOOPIC_vipvip4_20080825040314f783c25ca7fb781e158.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B555rtv_z&e3Bv54AzdH3Frtv_80amn0_z&e3Bip4s",            "fromURLHost":"www.ooopic.com",            "currentIndex":"",            "width":284,            "height":378,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"189061496250",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>模板下载(图片编号:170637)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "2329896941,3328884607",            "os" : "3752084074,2552599337",            "simid" : "3164949169,2962716838",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=3083115975,644307998&fm=206&gp=0.jpg",            "middleURL":"http://img5.imgtn.bdimg.com/it/u=3083115975,644307998&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":3,            "objURL":"http://pic1.ooopic.com/uploadfilepic/ziku/2008-08-25/OOOPIC_vipvip4_20080825040141556d73b044a3f44c120.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B555rtv_z&e3Bv54AzdH3Frtv_80aclb_z&e3Bip4s",            "fromURLHost":"www.ooopic.com",            "currentIndex":"",            "width":285,            "height":243,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"79847663280",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>模板下载(图片编号:170598)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "3083115975,644307998",            "os" : "1783386751,2559826355",            "simid" : "4216611775,586768597",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=1648788059,1679585100&fm=206&gp=0.jpg",            "middleURL":"http://img5.imgtn.bdimg.com/it/u=1648788059,1679585100&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":4,            "objURL":"http://pic1.ooopic.com/uploadfilepic/ziku/2008-08-25/OOOPIC_vipvip4_20080825040051faab0be21ddb6b79100.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B555rtv_z&e3Bv54AzdH3Frtv_80acmb_z&e3Bip4s",            "fromURLHost":"www.ooopic.com",            "currentIndex":"",            "width":284,            "height":292,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"118421479550",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>模板下载(图片编号:170568)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "1648788059,1679585100",            "os" : "4245033429,694186186",            "simid" : "3288285619,207357029",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=1158311697,999486614&fm=206&gp=0.jpg",            "middleURL":"http://img5.imgtn.bdimg.com/it/u=1158311697,999486614&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":5,            "objURL":"http://pic1.ooopic.com/uploadfilepic/ziku/2008-08-25/OOOPIC_vipvip4_2008082503230224465ab489246451113.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B555rtv_z&e3Bv54AzdH3Frtv_80ad98_z&e3Bip4s",            "fromURLHost":"www.ooopic.com",            "currentIndex":"",            "width":284,            "height":274,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"187188247070",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>模板下载(图片编号:170241)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "1158311697,999486614",            "os" : "880503204,1182664094",            "simid" : "3504883538,651148117",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2507958621,2115052898&fm=206&gp=0.jpg",            "middleURL":"http://img1.imgtn.bdimg.com/it/u=2507958621,2115052898&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":6,            "objURL":"http://pic1.ooopic.com/uploadfilepic/ziku/2008-08-25/OOOPIC_vipvip4_2008082504040977435d1027c30dd4183.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B555rtv_z&e3Bv54AzdH3Frtv_80am0a_z&e3Bip4s",            "fromURLHost":"www.ooopic.com",            "currentIndex":"",            "width":284,            "height":230,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"54223236760",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>模板下载(图片编号:170670)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "2507958621,2115052898",            "os" : "2261140832,2472296431",            "simid" : "3409705164,359929430",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=4283512758,2456052888&fm=206&gp=0.jpg",            "middleURL":"http://img2.imgtn.bdimg.com/it/u=4283512758,2456052888&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":7,            "objURL":"http://pic1.ooopic.com/uploadfilepic/ziku/2008-08-25/OOOPIC_vipvip4_2008082504033609756433a09980d2167.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B555rtv_z&e3Bv54AzdH3Frtv_80am9l_z&e3Bip4s",            "fromURLHost":"www.ooopic.com",            "currentIndex":"",            "width":284,            "height":354,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"199220066650",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>模板下载(图片编号:170649)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "4283512758,2456052888",            "os" : "600640053,822993650",            "simid" : "3310003700,458703375",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=607325816,2425848695&fm=206&gp=0.jpg",            "middleURL":"http://img1.imgtn.bdimg.com/it/u=607325816,2425848695&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":8,            "objURL":"http://pic1.ooopic.com/uploadfilepic/ziku/2008-08-25/OOOPIC_vipvip4_20080825040110e713ad98e7ee2b90108.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fytfi7zt_z&e3B555rtv_z&e3Bv54AzdH3Fdaab-b-dcAzdH3F80acb8_z&e3Bip4s",            "fromURLHost":"yishuzi.ooopic.com",            "currentIndex":"",            "width":285,            "height":396,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"36492450390",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>_书法字体_中国书法",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "607325816,2425848695",            "os" : "3788621518,2962623917",            "simid" : "3367951569,174892199",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=3940846164,2939710027&fm=206&gp=0.jpg",            "middleURL":"http://img3.imgtn.bdimg.com/it/u=3940846164,2939710027&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":9,            "objURL":"http://static.shufawu.com/data/attachment/forum/dict_images/ziku/xing/mifu/201.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bfi7uwo7_z&e3Bv54AzdH3Fu5674_z&e3Brir?451=etjopi6jw1&pt1=dmmmmd&jxp6w=rw2j%nD8",            "fromURLHost":"www.shufawu.com",            "currentIndex":"",            "width":279,            "height":199,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"134662971630",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"【<strong>太<\/strong>】书法屋-行书 《李 太 师帖》",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "3940846164,2939710027",            "os" : "686742570,925034485",            "simid" : "0,0",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=1957385857,2739918901&fm=206&gp=0.jpg",            "middleURL":"http://img4.imgtn.bdimg.com/it/u=1957385857,2739918901&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":10,            "objURL":"http://pic1.ooopic.com/uploadfilepic/ziku/2008-08-25/OOOPIC_vipvip4_20080825040357473330335567e65b177.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B555rtv_z&e3Bv54AzdH3Frtv_80ammd_z&e3Bip4s",            "fromURLHost":"www.ooopic.com",            "currentIndex":"",            "width":284,            "height":297,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"166396692440",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>模板下载(图片编号:170662)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "1957385857,2739918901",            "os" : "544506273,1434838300",            "simid" : "0,0",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=1773942420,4253724935&fm=206&gp=0.jpg",            "middleURL":"http://img1.imgtn.bdimg.com/it/u=1773942420,4253724935&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":11,            "objURL":"http://wenwen.soso.com/p/20090930/20090930162055-1942438364.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fojgojg_z&e3Bf5f5_z&e3Bv54AzdH3FzAzdH3Fq8c0bdn8ba_z&e3Bip4",            "fromURLHost":"wenwen.soso.com",            "currentIndex":"",            "width":262,            "height":222,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"105988882780",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong> 字的图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "1773942420,4253724935",            "os" : "215240611,2975813387",            "simid" : "0,0",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2664371799,4058950845&fm=206&gp=0.jpg",            "middleURL":"http://img2.imgtn.bdimg.com/it/u=2664371799,4058950845&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":12,            "objURL":"http://dl.zhishi.sina.com.cn/upload/23/38/13/1365233813.18422959.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Ftwfh_z&e3Bftgw_z&e3Bv54_z&e3BvgAzdH3FkAzdH3F8b9ddlcl_z&e3Bip4s",            "fromURLHost":"iask.sina.com.cn",            "currentIndex":"",            "width":802,            "height":287,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"94855649570",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"\"<strong>太太<\/strong>\"的\"太\"的古代写法是怎样的",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "2664371799,4058950845",            "os" : "3944237842,4055083895",            "simid" : "4239324569,826144820",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=3478455895,777312981&fm=206&gp=0.jpg",            "middleURL":"http://img4.imgtn.bdimg.com/it/u=3478455895,777312981&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":13,            "objURL":"http://www.zxtv.com.cn/bbs/data/attachment/forum/201403/31/171604kp2zwg2gyywzk19n.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bzxpe_z&e3Bv54_z&e3BvgAzdH3FkkfAzdH3Fu5674_z&e3Brir?451=etjopi6jw1&pt1=009bm",            "fromURLHost":"www.zxtv.com.cn",            "currentIndex":"",            "width":401,            "height":381,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"123909318170",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>残暴了",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "3478455895,777312981",            "os" : "1218601797,2838188641",            "simid" : "3630498260,546397820",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=921793485,3874783800&fm=206&gp=0.jpg",            "middleURL":"http://img5.imgtn.bdimg.com/it/u=921793485,3874783800&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":14,            "objURL":"http://d.hiphotos.baidu.com/zhidao/pic/item/6609c93d70cf3bc79c72442cd000baa1cc112afb.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fzit1w5_z&e3Bkwt17_z&e3Bv54AzdH3Fq7jfpt5gAzdH3Fcbmmnn8an_z&e3Bip4s",            "fromURLHost":"zhidao.baidu.com",            "currentIndex":"",            "width":640,            "height":640,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"119274652640",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"叼你个<strong>太<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "921793485,3874783800",            "os" : "672537019,2955145589",            "simid" : "20629764,819577668",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=523104176,2390484763&fm=206&gp=0.jpg",            "middleURL":"http://img3.imgtn.bdimg.com/it/u=523104176,2390484763&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":15,            "objURL":"http://www.cidianwang.com/file/shufa/caoshu/396aa541830715eb.gif",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bvt1twgowg2_z&e3Bv54AzdH3Ffi7uwAzdH3Fpwtlcl_vf_z&e3Bip4",            "fromURLHost":"www.cidianwang.com",            "currentIndex":"",            "width":378,            "height":416,            "type":"gif",            "filesize":"",            "bdSrcType":"10",            "di":"30416374670",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>草书书法欣赏_ 太 草书字典",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "523104176,2390484763",            "os" : "2005818926,1642421301",            "simid" : "3459328399,439815377",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=260956745,4009501592&fm=206&gp=0.jpg",            "middleURL":"http://img1.imgtn.bdimg.com/it/u=260956745,4009501592&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":16,            "objURL":"http://pic24.nipic.com/20121101/1882987_120511622109_2.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bgtrtv_z&e3Bv54AzdH3Ffi5oAzdH3FnAzdH3FbdAzdH3F0anmd0dhjlla1ub9_z&e3Bip4s",            "fromURLHost":"www.nipic.com",            "currentIndex":"",            "width":712,            "height":249,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"59799808860",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"帅<strong>太<\/strong>logo矢量图__企业logo标志",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "260956745,4009501592",            "os" : "1585931,93385621",            "simid" : "4132553452,713556825",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=3103689857,426897648&fm=206&gp=0.jpg",            "middleURL":"http://img5.imgtn.bdimg.com/it/u=3103689857,426897648&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":17,            "objURL":"http://f.hiphotos.baidu.com/zhidao/pic/item/b90e7bec54e736d1bad8526e9a504fc2d4626989.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fzit1w5_z&e3Bkwt17_z&e3Bv54AzdH3Fq7jfpt5gAzdH3Fcnldl9l9m_z&e3Bip4s",            "fromURLHost":"zhidao.baidu.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"126666010680",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>漂亮 太 可爱了吧",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "3103689857,426897648",            "os" : "361869266,3007779520",            "simid" : "0,0",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=1913379018,2916894986&fm=206&gp=0.jpg",            "middleURL":"http://img4.imgtn.bdimg.com/it/u=1913379018,2916894986&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":18,            "objURL":"http://e.hiphotos.baidu.com/baike/s%3D220/sign=6f844083c9ea15ce45eee70b86013a25/9a504fc2d56285358962fc2790ef76c6a7ef6331.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fkwthj_z&e3Bkwt17_z&e3Bv54AzdH3Ff7ketjoAzdH3F899ln9AzdH3F8dcd0dcd_z&e3Bip4",            "fromURLHost":"baike.baidu.com",            "currentIndex":"",            "width":101,            "height":101,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"16791050760",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>_百度百科",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "1913379018,2916894986",            "os" : "1099641126,2267533268",            "simid" : "4170945490,818171824",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=3724903834,1997751044&fm=206&gp=0.jpg",            "middleURL":"http://img2.imgtn.bdimg.com/it/u=3724903834,1997751044&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":19,            "objURL":"http://bigtu.eastday.com/img/201111/13/97/7414222463031662645.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgjof_z&e3Bjwfp1wy_z&e3Bv54AzdH3FvAzdH3Fda88888nAzdH3F78wmda8mnd_z&e3Bip4s",            "fromURLHost":"news.eastday.com",            "currentIndex":"",            "width":530,            "height":190,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"63093075760",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"式餐饮品牌-<strong>太<\/strong>兴",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "3724903834,1997751044",            "os" : "2634730202,567761082",            "simid" : "3380423014,310461890",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3460226642,791989835&fm=206&gp=0.jpg",            "middleURL":"http://img1.imgtn.bdimg.com/it/u=3460226642,791989835&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":20,            "objURL":"http://img4.duitang.com/uploads/item/201410/02/20141002213938_nS8Q3.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Frj5rsjAzdH3F4ks52AzdH3Fd8ccmadnmAzdH3F1jpwtsAzdH3F",            "fromURLHost":"www.duitang.com",            "currentIndex":"",            "width":1200,            "height":798,            "type":"jpeg",            "filesize":"",            "bdSrcType":"10",            "di":"169823231930",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>美…_来自evonne歪歪酱的图片分享-堆糖网",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "3460226642,791989835",            "os" : "1972035252,1365843129",            "simid" : "0,0",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1613257885,2269546561&fm=206&gp=0.jpg",            "middleURL":"http://img2.imgtn.bdimg.com/it/u=1613257885,2269546561&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":21,            "objURL":"http://img4.duitang.com/uploads/item/201404/14/20140414095947_BA358.thumb.600_0.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Frj5rsjAzdH3F4ks52AzdH3F8ncc90dmnAzdH3F1jpwtsAzdH3F",            "fromURLHost":"www.duitang.com",            "currentIndex":"",            "width":600,            "height":684,            "type":"jpeg",            "filesize":"",            "bdSrcType":"10",            "di":"188433585230",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"剑网三 秀<strong>太<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "1613257885,2269546561",            "os" : "1598194907,3961391170",            "simid" : "1920993,596300972",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=380762379,1708388039&fm=206&gp=0.jpg",            "middleURL":"http://img2.imgtn.bdimg.com/it/u=380762379,1708388039&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":22,            "objURL":"http://image.haha.mx/2012/09/12/middle/564298_407778fdd7b1237f5509dc44ec01c8a7_1347428435.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Biwiw_z&e3B4xAzdH3F35hjAzdH3Fcm9dlb",            "fromURLHost":"www.haha.mx",            "currentIndex":"",            "width":439,            "height":330,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"6661113360",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"地板<strong>太<\/strong>亮也不是好事",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "380762379,1708388039",            "os" : "3358719000,1117942443",            "simid" : "31540122,726101000",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=987659576,1517801066&fm=206&gp=0.jpg",            "middleURL":"http://img4.imgtn.bdimg.com/it/u=987659576,1517801066&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":23,            "objURL":"http://img5.duitang.com/uploads/item/201410/07/20141007125130_Fd8Fh.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Frj5rsjAzdH3F4ks52AzdH3Fd8l8n9mmlAzdH3F1jpwtsAzdH3F",            "fromURLHost":"www.duitang.com",            "currentIndex":"",            "width":549,            "height":741,            "type":"jpeg",            "filesize":"",            "bdSrcType":"10",            "di":"127390553950",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>美…_来自顾尔的图片分享-堆糖网",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "987659576,1517801066",            "os" : "1753235180,1487210057",            "simid" : "0,0",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=196149018,2344648925&fm=206&gp=0.jpg",            "middleURL":"http://img5.imgtn.bdimg.com/it/u=196149018,2344648925&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":24,            "objURL":"http://img5q.duitang.com/uploads/blog/201405/05/20140505195756_NJ3Ni.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Frj5rsjAzdH3F4ks52AzdH3F8cmb0ddn9AzdH3F1jpwtsAzdH3F",            "fromURLHost":"www.duitang.com",            "currentIndex":"",            "width":500,            "height":680,            "type":"jpeg",            "filesize":"",            "bdSrcType":"10",            "di":"84522274540",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"面码和仁<strong>太<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "196149018,2344648925",            "os" : "3832331707,3402776776",            "simid" : "0,0",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=4190468970,3768054093&fm=206&gp=0.jpg",            "middleURL":"http://img5.imgtn.bdimg.com/it/u=4190468970,3768054093&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":25,            "objURL":"http://www.bixueke.com/uploadimg/201211/08571315118.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fxtw5i7w_z&e3Bktx7jhj_z&e3Bv54AzdH3FjAzdH3F8d88ddAzdH3F4soteg4xxk_z&e3Bip4s",            "fromURLHost":"xiaohua.bixueke.com",            "currentIndex":"",            "width":457,            "height":600,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"122153522810",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>色啦_搞笑爱情图片 ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "4190468970,3768054093",            "os" : "937590343,1085752926",            "simid" : "3404507945,270004433",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=2233251214,3993847961&fm=206&gp=0.jpg",            "middleURL":"http://img5.imgtn.bdimg.com/it/u=2233251214,3993847961&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":26,            "objURL":"http://img.tom61.com/down/bizhi/002/01.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bp54m8_z&e3Bv54AzdH3Ffiw5j6p7h7AzdH3F15g24wgktzitAzdH3Fda88-a8-a8AzdH3F89d9_z&e3Bip4s",            "fromURLHost":"www.tom61.com",            "currentIndex":"",            "width":1024,            "height":768,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"153102236650",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"魔法师猫<strong>太<\/strong>游记图片_动漫壁纸",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "2233251214,3993847961",            "os" : "1357973769,832265633",            "simid" : "3431984487,190758758",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=1321548565,2768351136&fm=206&gp=0.jpg",            "middleURL":"http://img1.imgtn.bdimg.com/it/u=1321548565,2768351136&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":27,            "objURL":"http://cdn.duitang.com/uploads/item/201408/17/20140817102226_NQARz.thumb.700_0.png",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Frj5rsjAzdH3F4ks52AzdH3F8b9ndmlcmAzdH3F1jpwtsAzdH3F",            "fromURLHost":"www.duitang.com",            "currentIndex":"",            "width":510,            "height":393,            "type":"png",            "filesize":"",            "bdSrcType":"10",            "di":"202457402180",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>天真…_来自zee阿哲的图片分享-堆糖网",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "1321548565,2768351136",            "os" : "1269050092,3165907830",            "simid" : "4245750680,766896418",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=1948080902,3179676756&fm=206&gp=0.jpg",            "middleURL":"http://img4.imgtn.bdimg.com/it/u=1948080902,3179676756&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":28,            "objURL":"http://cishan.sznews.com/tqbhome/images/00188b2bc01408ab992e02.54909c.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fvtfiwg_z&e3Bfzgjof_z&e3Bv54AzdH3Fpqki54jAzdH3Fv5gpjgpAzdH3Fdaa0-88AzdH3F8lAzdH3Fv5gpjgp_8mm8ad8_z&e3Bip4",            "fromURLHost":"cishan.sznews.com",            "currentIndex":"",            "width":400,            "height":420,            "type":"jpg",            "filesize":"",            "bdSrcType":"10",            "di":"16603773670",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"美女内急时尴尬的(<strong>太",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "1948080902,3179676756",            "os" : "3522987788,797682771",            "simid" : "3347476240,234888304",            "source_type":"",            "personalized":"0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2821331086,3863870599&fm=206&gp=0.jpg",            "middleURL":"http://img1.imgtn.bdimg.com/it/u=2821331086,3863870599&fm=206&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":29,            "objURL":"http://img5.duitang.com/uploads/item/201410/07/20141007125040_4PGZP.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Frj5rsjAzdH3F4ks52AzdH3Fd8l8n988nAzdH3F1jpwtsAzdH3F",            "fromURLHost":"www.duitang.com",            "currentIndex":"",            "width":544,            "height":511,            "type":"jpeg",            "filesize":"",            "bdSrcType":"10",            "di":"190006565980",            "is":"",            "bdSetImgNum":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>太<\/strong>美…_来自顾尔的图片分享-堆糖网",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,            "token":"",            "imgType" : "",            "cs" : "2821331086,3863870599",            "os" : "1624089316,1085120831",            "simid" : "3470299328,491154575",            "source_type":"",            "personalized":"0"        },{}]});
+    app.setData('fcadData', {"fcData":[],"fcBtData":[],"fcType":"","adType":0,"fcAdDatasLen":"0"}
+);
+    app.setData('xgMidData', {"xgMidData":[],"xgMidDataLen":"0"});
+    app.setData('browserRsData', {    "Status" : "0",    "query" : "",    "desc" : "",    "id" : "",    "photos" :[]});
+    app.setData('rsQuery', [["丐太", "%D8%A4%CC%AB"],["贺氏丫太 食用少女", "%BA%D8%CA%CF%D1%BE%CC%AB%20%CA%B3%D3%C3%C9%D9%C5%AE"],["户太八号葡萄图片", "%BB%A7%CC%AB%B0%CB%BA%C5%C6%CF%CC%D1%CD%BC%C6%AC"],["周家蔚泳衣太窄图", "%D6%DC%BC%D2%CE%B5%D3%BE%D2%C2%CC%AB%D5%AD%CD%BC"],["tomcat 京太", "tomcat%20%BE%A9%CC%AB"],["太兴", "%CC%AB%D0%CB"],["向太年轻", "%CF%F2%CC%AB%C4%EA%C7%E1"],["国太控股", "%B9%FA%CC%AB%BF%D8%B9%C9"],["太火鸟", "%CC%AB%BB%F0%C4%F1"],["幸福来的太突然", "%D0%D2%B8%A3%C0%B4%B5%C4%CC%AB%CD%BB%C8%BB"],["衣服太透", "%D2%C2%B7%FE%CC%AB%CD%B8"],["神宫寺勇太", "%C9%F1%B9%AC%CB%C2%D3%C2%CC%AB"],["鞋带太长", "%D0%AC%B4%F8%CC%AB%B3%A4"],["剑三咩太", "%BD%A3%C8%FD%DF%E3%CC%AB"],["黄濑凉太手机壁纸", "%BB%C6%E4%FE%C1%B9%CC%AB%CA%D6%BB%FA%B1%DA%D6%BD"],["如月弦太朗", "%C8%E7%D4%C2%CF%D2%CC%AB%C0%CA"],["环太苦荞", "%BB%B7%CC%AB%BF%E0%DC%F1"],["太贱了", "%CC%AB%BC%FA%C1%CB"],["吃饭太快", "%B3%D4%B7%B9%CC%AB%BF%EC"],["太锅锅炉", "%CC%AB%B9%F8%B9%F8%C2%AF"],["火影很太", "%BB%F0%D3%B0%BA%DC%CC%AB"],["太平面", "%CC%AB%C6%BD%C3%E6"],["金井勇太", "%BD%F0%BE%AE%D3%C2%CC%AB"],["太浮山", "%CC%AB%B8%A1%C9%BD"],["飘窗太高怎么办", "%C6%AE%B4%B0%CC%AB%B8%DF%D4%F5%C3%B4%B0%EC"],["华太厨卫", "%BB%AA%CC%AB%B3%F8%CE%C0"],["太尚门大使", "%CC%AB%C9%D0%C3%C5%B4%F3%CA%B9"],["御崎诏太", "%D3%F9%C6%E9%DA%AF%CC%AB"],["你太弱了", "%C4%E3%CC%AB%C8%F5%C1%CB"],["人生大起大落的太快", "%C8%CB%C9%FA%B4%F3%C6%F0%B4%F3%C2%E4%B5%C4%CC%AB%BF%EC"]]);
+    app.setData('hotWords', [{            "query": "船员海滩摆字获救",            "flag": "船员海滩摆字获救",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=船员海滩摆字获救",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "万人祝贺老人过寿",            "flag": "万人祝贺老人过寿",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=万人祝贺老人过寿",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "男子自挂高架桥",            "flag": "男子自挂高架桥",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=男子自挂高架桥",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "冯小刚再获影帝",            "flag": "冯小刚再获影帝",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=冯小刚再获影帝",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "当街售卖锤头鲨",            "flag": "当街售卖锤头鲨",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=当街售卖锤头鲨",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "少女花海自拍撞亡",            "flag": "少女花海自拍撞亡",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=少女花海自拍撞亡",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "男子非法种罂粟",            "flag": "男子非法种罂粟",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=男子非法种罂粟",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "小伙独创踢腿招式",            "flag": "小伙独创踢腿招式",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=小伙独创踢腿招式",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "牡丹文化节开幕",            "flag": "牡丹文化节开幕",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=牡丹文化节开幕",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "8年整成范冰冰",            "flag": "8年整成范冰冰",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=8年整成范冰冰",            "hot": "0",            "fromurl": "",            "photos": []        }]);
+
+            app.init();
+    app.run();
+});
+}();
+!function(){
+require.async(["common:widget/ui/jquery/jquery.js",'common:widget/ui/swf/swf.js',"searchresult:widget/searchBox/shitu/init","searchresult:widget/ui/statistic/statistic"],function( $, swf, shitu,statistic){
+    window.statistic = statistic;
+    $(function() {
+        var st = new shitu();
+        st.init();
+        window.stInstance = st;
+        var flashCon = document.getElementById('flashcontent');
+        if(((parseInt(swf.version, 10) || 0) < 10) || !flashCon){
+            flashCon.style.display = 'none';
+        }else{
+            try{
+                swf.create({id:"STUUpload",url:"http://img.baidu.com/img/image/stu/STUpload2.swf?v=1024",width:"103",height:"28", align : "top", wmode:"transparent", allowscriptaccess : "always",errorMessage:"载入FLASH出错",vars:{uploadurl:"/pictureup/uploadshitu?fr=flash&fm=searchresult&pos=upload",logurl:"http://webclick.baidu.com/9.gif?rainbow=1&type=searchNum&p=uploadSearch&form=searchresult&flash=1&t=",compress:"1"},ver:"10.1.0"},"flashcontent");
+            }catch(e){
+                flashCon.style.display = 'none';
+            }
+
+        }
+    });
+});
+}();
+!function(){require.async(["searchresult:widget/searchBox/imgFilter/init"],function(filter){
+	filter.init();
+})
+
+
+}();
+!function(){/**
+* isRefresh 用来判断禁止se或查询的参数是否生效,false表示无须清零，true表示需要清零
+*/
+require.async(["common:widget/ui/jquery/jquery.js","searchresult:widget/ui/utils/utils"],function( $, utils){
+
+window.s_submit = function(form,isRefresh){
+
+//图片url检索跳转
+var keyword = form.word.value;
+var tiaoma = /^[\s]*http[s]*\:\/\/[\s\S]*\.[jpg|gif|png|bmp|jpeg]*[\s]*$/.test(keyword) ||/img5\.imgtn\.bdimg\.com/.test(keyword) || /mt1\.baidu\.com\/timg/.test(keyword);
+var jumpURL = 'http://image.baidu.com/n/pc_search?queryImageUrl='+encodeURIComponent(keyword)+'&fm=searchresult&pos=urlsearch&uptype=urlsearch';
+
+if(tiaoma){
+   location.href = jumpURL;
+   return false;
+}
+
+
+var searchConf = utils.query2Json(utils.escapeXSS(window.location.search.substring(1)));
+if(typeof searchConf.fm == "undefined"){searchConf.fm = '';}
+if(typeof searchConf.fmq == "undefined"){searchConf.fmq = '';}
+if(utils.trim(searchConf.queryWord) == form.word.value){
+form.fmq.value = utils.fmqValueSet();
+}else{
+var fmqDate = new Date();
+var T = fmqDate.getTime();
+if(searchConf.fmq.indexOf('m') > -1 && searchConf.fmq.indexOf('_m') == -1 && searchConf.fmq.indexOf('_R') == -1){
+var fmqvalue = searchConf.fmq;
+form.fmq.value = T + '_' +fmqvalue + '_R';
+}else{
+form.fmq.value =  T + '_R';
+}
+
+}
+var isflip = $('body').hasClass('flip');
+form.tn.value = "baiduimage";
+
+form.ct.value = "201326592";
+form.cl.value = "2";
+form.lm.value = "-1";
+form.pv.value = "";
+
+form.action = "/search/index";
+if(isflip) {
+    form.action = "/search/flip";
+}
+if(isRefresh == true){
+//submit直接提交新query
+form.se.value = "1";
+}else{
+var showtab =  parseInt(searchConf.showtab);
+if(!isNaN(showtab)&&showtab>0){
+form.showtab.value = showtab;
+}
+}
+return true;
+}
+
+
+})
+
+}();
+!function(){
+		window.bid = 14;
+
+	if(!window.passport){
+	    var script = document.createElement("script");
+	    script.src = 'http://passport.baidu.com/passApi/js/uni_login_wrapper.js?cdnversion=' + (new Date).getTime();
+	    document.body.appendChild(script);
+	}
+	require.async(["common:widget/loginbar/loginbar"],function(loginbar){
+
+	    loginbar.init();        
+
+	});
+
+
+}();
+!function(){    require.async(['searchresult:widget/pagelets/base/backTop/init']);
+}();
+!function(){    require.async(['common:widget/ui/monitorRequest/monitorRequest'],function(monitorRequest){
+	var userid = "";
+	var q = "%E5%A4%AA";
+	var tn = "result";
+	var host = "http://imgstat.baidu.com/4.gif";
+	var hostSweb = "http://image.baidu.com/pv/pv2.gif";
+    var rsw = "";
+    if(location.href !== document.referrer && document.referrer != ""){
+        rsw = "&rs=";
+    }
+    else{
+        rsw ="";
+    }
+    var samplekey = window.samplekey || '';
+    var img = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    monitorRequest( host + "?logid=15998905291605128790&ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=result.page&fr=" + rsw);
+    var imgSweb = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    imgSweb.src = hostSweb + "?ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=&fr=" + rsw + '&' + new Date() * Math.random();
+    });
+}();
+!function(){    require.async(["common:widget/ui/fmCheck/fmCheck"],function(fmCheck){
+        fmCheck.init();
+    });
+}();</script>
+
+</html>
