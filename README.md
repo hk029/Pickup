@@ -14,3 +14,13 @@ Pickup是一个自动下载图片的程序
 ##使用说明
 python PicDownloader.py
 然后输入需要查找的图片关键词，就能自动下载到pictue文件目录下
+
+
+##联系
+我的Email: hk2291976@hotmail.com
+
+我的CSDN: [http://blog.csdn.net/hk2291976/](http://blog.csdn.net/hk2291976/)
+
+我的简书：[http://www.jianshu.com/users/30f737ee0051](http://www.jianshu.com/users/30f737ee0051)
+
+我的博客园：[www.cnblogs.com/voidsky/](www.cnblogs.com/voidsky/)
